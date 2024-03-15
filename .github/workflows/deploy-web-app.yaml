@@ -1,0 +1,47 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x'
+
+    - name: Delete old /docs folder
+      run: rm -rf docs
+
+    - name: Publish
+      run: dotnet publish src/ReactVsBlazorPresentation/ReactVsBlazorPresentation.csproj --configuration Release --output out
+
+    - name: Copy wwwroot to docs
+      run: cp -r out/wwwroot docs
+    
+    - name: Set BasePath
+      run: sed -i 's/base href="\/"/base href="\/ReactVsBlazorPresentation\/"/g' docs/index.html
+    
+    - name: Remove the out folder
+      run: rm -rf out
+
+    - name: Commit changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add docs/*
+        git commit -m "Deploy to GitHub Pages"
+    
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: main
