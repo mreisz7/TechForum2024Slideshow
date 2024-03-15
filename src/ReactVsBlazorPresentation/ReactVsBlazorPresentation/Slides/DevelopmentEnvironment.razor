@@ -1,0 +1,109 @@
+﻿@inherits SlideBase
+
+<div class="full-screen">
+    <header class="slide-header">
+        <h1 class="slide-title">React vs. Blazor: Development Environment</h1>
+    </header>
+    <div class="slide-content">
+        <table>
+            <thead>
+                <tr>
+                    <th style="border: none;"></th>
+                    <th>
+                        <div class="table-header">
+                            React
+                            <img class="table-header-logo" src="img/react-logo.png" />
+                        </div>
+                    </th>
+                    <th>
+                        <div class="table-header">
+                            Blazor
+                            <img class="table-header-logo" src="img/blazor-logo.png" />
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        Unit/Component Testing
+                    </td>
+                    <td class=@ShowSlideStopElement(1)>
+                        Jest
+                    </td>
+                    <td class=@ShowSlideStopElement(2)>
+                        bUnit<br />
+                        xUnit<br />
+                        nUnit
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        End to End Testing
+                    </td>
+                    <td class=@ShowSlideStopElement(1)>
+                        Playwright<br />
+                        Selenium<br />
+                        SpecFlow<br />
+                        Cypress
+                    </td>
+                    <td class=@ShowSlideStopElement(2)>
+                        Playwright<br />
+                        Selenium<br />
+                        SpecFlow<br />
+                        Cypress
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Supports SASS
+                    </td>
+                    <td class=@ShowSlideStopElement(1)>
+                        Yes
+                    </td>
+                    <td class=@ShowSlideStopElement(2)>
+                        Yes
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Component-Scoped CSS
+                    </td>
+                    <td class=@ShowSlideStopElement(1)>
+                        Yes
+                    </td>
+                    <td class=@ShowSlideStopElement(2)>
+                        Yes
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Mobile App Development
+                    </td>
+                    <td class=@ShowSlideStopElement(1)>
+                        React Native
+                    </td>
+                    <td class=@ShowSlideStopElement(2)>
+                        .NET MAUI
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Desktop Development
+                    </td>
+                    <td class=@ShowSlideStopElement(1)>
+                        Electron
+                    </td>
+                    <td class=@ShowSlideStopElement(2)>
+                        .NET MAUI
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+@code {
+    public override int SlideStopMax { get; set; } = 2;
+}

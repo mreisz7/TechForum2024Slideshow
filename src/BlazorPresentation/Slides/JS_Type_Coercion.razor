@@ -1,0 +1,18 @@
+﻿@inherits SlideBase
+
+<h1>Aggressive Type Coercion</h1>
+
+<ul class="code bullet-points">
+  <li><span class="terminal-arrow">></span> 10 == '10'<br /></li>
+  <li class=@($"{ShowSlideStopElement(1)}")><span class="terminal-arrow">&lt;</span> <span class="code-result">true</span><br /></li>
+  <li class=@($"{ShowSlideStopElement(2)}")><span class="terminal-arrow">></span> 'hello' + 1<br /></li>
+  <li class=@($"{ShowSlideStopElement(3)}")><span class="terminal-arrow">&lt;</span> <span class="code-result">'hello1'</span><br /></li>
+  <li class=@($"{ShowSlideStopElement(4)}")><span class="terminal-arrow">></span> [] + {}<br /></li>
+  <li class=@($"{ShowSlideStopElement(5)}")><span class="terminal-arrow">&lt;</span> <span class="code-result">'[object Object]'</span><br /></li>
+  <li class=@($"{ShowSlideStopElement(6)}")><span class="terminal-arrow">></span> {} + []<br /></li>
+  <li class=@($"{ShowSlideStopElement(7)}")><span class="terminal-arrow">&lt;</span> <span class="code-result">0</span> <span class="code-comment">// ???</span></li>
+</ul>
+
+@code {
+    public override int SlideStopMax { get; set; } = 7;
+}

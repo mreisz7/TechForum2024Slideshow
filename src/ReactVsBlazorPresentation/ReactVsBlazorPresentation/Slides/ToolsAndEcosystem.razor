@@ -1,0 +1,93 @@
+﻿@inherits SlideBase
+
+<div class="full-screen">
+    <header class="slide-header">
+        <h1 class="slide-title">React vs. Blazor: Tools & Ecosystem</h1>
+    </header>
+    <div class="slide-content">
+        <table>
+            <thead>
+                <tr>
+                    <th style="border: none;"></th>
+                    <th>
+                        <div class="table-header">
+                            React
+                            <img class="table-header-logo" src="img/react-logo.png" />
+                        </div>
+                    </th>
+                    <th>
+                        <div class="table-header">
+                            Blazor
+                            <img class="table-header-logo" src="img/blazor-logo.png" />
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Tools to Install</td>
+                    <td class=@ShowSlideStopElement(1)>
+                        Node.js<br />
+                        NPM<br />
+                        Yarn (optional)
+                    </td>
+                    <td class=@ShowSlideStopElement(2)>
+                        .NET SDK
+                    </td>
+                </tr>
+                <tr>
+                    <td>Popular IDE's</td>
+                    <td class=@ShowSlideStopElement(1)>
+                        Visual Studio Code<br />
+                        JetBrains WebStorm<br />
+                        Sublime Text
+                    </td>
+                    <td class=@ShowSlideStopElement(2)>
+                        Visual Studio<br />
+                        Visual Studio Code<br />
+                        JetBrains Rider
+                    </td>
+                </tr>
+                <tr>
+                    <td>Operating Systems</td>
+                    <td class=@ShowSlideStopElement(1)>
+                        Windows<br />
+                        Linux<br />
+                        Mac
+                    </td>
+                    <td class=@ShowSlideStopElement(2)>
+                        Windows<br />
+                        Linux<br />
+                        Mac
+                    </td>
+                </tr>
+                <tr>
+                    <td>Package Manager</td>
+                    <td class=@ShowSlideStopElement(1)>
+                        NPM<br />
+                        Yarn
+                    </td>
+                    <td class=@ShowSlideStopElement(2)>
+                        Nuget
+                    </td>
+                </tr>
+                <tr>
+                    <td>Debugging Tools</td>
+                    <td class=@ShowSlideStopElement(1)>
+                        Browser DevTools<br />
+                        Visual Studio Code
+                    </td>
+                    <td class=@ShowSlideStopElement(2)>
+                        Visual Studio<br />
+                        Browser DevTools
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+@code {
+    public override int SlideStopMax { get; set; } = 2;
+}

@@ -1,0 +1,170 @@
+﻿@page "/"
+
+<div @ref=@SlideContainerRef 
+     tabindex="0" 
+     @onkeydown=@HandleKeyDown 
+     @ontouchstart=@HandleTouchStart 
+     @ontouchmove=@HandleTouchMove 
+>
+    @for (int i = 0; i < Slides.Count; i++)
+    {
+        Type? slideType = Type.GetType($"ReactVsBlazorPresentation.Slides.{Slides[i]}");
+        Dictionary<string, object> parameters = new()
+        {
+            { "IsCurrent", i == CurrentSlide },
+            { "IsPastSlide", i < CurrentSlide },
+            { "SlideStopIndex", CurrentSlideStopIndex },
+            { "OnIncrementSlide", EventCallback.Factory.Create(this, IncrementSlides) },
+            { "OnDecrementSlide", EventCallback.Factory.Create(this, DecrementSlides) },
+        };
+        if (slideType is not null)
+        {
+            <SlideFrame SlideIndex=@i 
+                        CurrentSlideIndex=@CurrentSlide
+            >
+                <DynamicComponent Type=@slideType 
+                                  Parameters=@parameters
+                />
+            </SlideFrame>
+        }
+    }
+</div>
+
+<footer>
+    <span>@($"{CurrentSlide + 1} / {Slides.Count}")</span>
+</footer>
+
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await SlideContainerRef.FocusAsync();
+        }
+    }
+
+    public List<string> Slides { get; set; } = new()
+    {
+        // Title
+        nameof(ReactVsBlazorPresentation.Slides.TitlePage),
+
+        nameof(AboutReact),
+        nameof(ReactVsBlazorPresentation.Slides.AboutBlazor),
+        nameof(ReactVsBlazorPresentation.Slides.ToolsAndEcosystem),
+        nameof(ReactVsBlazorPresentation.Slides.DevelopmentEnvironment),
+        nameof(ReactVsBlazorPresentation.Slides.Development),
+        nameof(ReactVsBlazorPresentation.Slides.SideBySideApps),
+        nameof(ReactVsBlazorPresentation.Slides.ComparisonComponentAnatomy),
+        nameof(ReactVsBlazorPresentation.Slides.ComparisonRouting),
+        nameof(ReactVsBlazorPresentation.Slides.ComparisonPersistentState),
+
+        nameof(ReactVsBlazorPresentation.Slides.ReactProsAndCons),
+        nameof(ReactVsBlazorPresentation.Slides.BlazorProsAndCons),
+        
+        // Qustions/Contact
+        nameof(ReactVsBlazorPresentation.Slides.Questions),
+        nameof(ReactVsBlazorPresentation.Slides.ContactUs),
+    };
+
+    public int CurrentSlide = 0;
+    public int CurrentSlideStopIndex = 0;
+
+    private ElementReference SlideContainerRef;
+
+    private double? xTouchStart = null;
+    private double? yTouchStart = null;
+
+    private void Increment()
+    {
+        if (CurrentSlide + 1 < Slides.Count)
+        {
+            CurrentSlideStopIndex++;
+        }
+    }
+
+    private void Decrement()
+    {
+        if (CurrentSlide > 0)
+        {
+            CurrentSlideStopIndex--;
+        }
+    }
+
+    private void IncrementSlides()
+    {
+        if (CurrentSlide + 1 < Slides.Count)
+        {
+            CurrentSlide++;
+            CurrentSlideStopIndex = 0;
+        }
+    }
+
+    private void DecrementSlides()
+    {
+        if (CurrentSlide > 0)
+        {
+            CurrentSlide--;
+            CurrentSlideStopIndex = 0;
+        }
+    }
+
+    private void HandleKeyDown(KeyboardEventArgs e)
+    {
+        if (e.Code == "KeyH")
+        {
+            CurrentSlide = 0;
+        }
+        if (e.Code == "ArrowRight" || e.Code == "ArrowDown" || e.Code == "Space" || e.Code == "Enter" || e.Code == "PageDown")
+        {
+            Increment();
+        }
+        if (e.Code == "ArrowLeft" || e.Code == "ArrowUp" || e.Code == "PageUp")
+        {
+            Decrement();
+        }
+    }
+
+    private void HandleTouchStart(TouchEventArgs e)
+    {
+        xTouchStart = e.Touches[0].ClientX;
+        yTouchStart = e.Touches[0].ClientY;
+    }
+
+    private void HandleTouchMove(TouchEventArgs e)
+    {
+        if (xTouchStart is not null && yTouchStart is not null)
+        {
+            double xTouchMove = e.Touches[0].ClientX;
+            double yTouchMove = e.Touches[0].ClientY;
+
+            double xTouchDiff = (double)xTouchStart - xTouchMove;
+            double yTouchDiff = (double)yTouchStart - yTouchMove;
+
+            if (Math.Abs(xTouchDiff) > Math.Abs(yTouchDiff))
+            {
+                if (xTouchDiff > 0)
+                {
+                    // Right Swipe triggered
+                    Increment();
+                } else
+                {
+                    // Left Swipe triggered
+                    Decrement();
+                }
+            } else
+            {
+                if (yTouchDiff > 0)
+                {
+                    // Down Swipe triggered
+                    Console.WriteLine("Down Swipe");
+                } else
+                {
+                    // Up Swipe triggered
+                    Console.WriteLine("Up Swipe");
+                }
+            }
+        }
+        xTouchStart = null;
+        yTouchStart = null;
+    }
+}

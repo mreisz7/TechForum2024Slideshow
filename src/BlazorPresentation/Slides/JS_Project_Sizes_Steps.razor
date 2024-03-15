@@ -1,0 +1,12 @@
+﻿@inherits SlideBase
+
+<div style="text-align: center">
+  <h1><img class="logo-img" src="images/angular-logo.png" />  239 MB, <span class="red">916 packages</span></h1>
+  <h1 class=@ShowSlideStopElement(1)><img class="logo-img" src="images/vue-logo.png" />  110 MB, <span class="red">955 packages</span></h1>
+  <h1 class=@ShowSlideStopElement(2)><img class="logo-img" src="images/react-logo.png" />  140 MB, <span class="red">1416 packages</span></h1>
+  <p class="text-align: right">*All projects created on February 25, 2022</p>
+</div>
+
+@code {
+    public override int SlideStopMax { get; set; } = 2;
+}

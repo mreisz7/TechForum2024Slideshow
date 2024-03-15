@@ -1,0 +1,71 @@
+﻿@inherits SlideBase
+
+<div class="full-screen">
+    <header class="slide-header">
+        <h1 class="slide-title">React vs. Blazor: Development</h1>
+    </header>
+    <div class="slide-content">
+        <table>
+            <thead>
+                <tr>
+                    <th style="border: none;"></th>
+                    <th>
+                        <div class="table-header">
+                            React
+                            <img class="table-header-logo" src="img/react-logo.png" />
+                        </div>
+                    </th>
+                    <th>
+                        <div class="table-header">
+                            Blazor
+                            <img class="table-header-logo" src="img/blazor-logo.png" />
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        Language
+                    </td>
+                    <td class=@ShowSlideStopElement(1)>
+                        Javascript<br />
+                        Typescript
+                    </td>
+                    <td class=@ShowSlideStopElement(2)>
+                        C#
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Component Syntax
+                    </td>
+                    <td class=@ShowSlideStopElement(1)>
+                        .jsx<br />
+                        .tsx
+                    </td>
+                    <td class=@ShowSlideStopElement(2)>
+                        .razor
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Data Binding
+                    </td>
+                    <td class=@ShowSlideStopElement(1)>
+                        1-way
+                    </td>
+                    <td class=@ShowSlideStopElement(2)>
+                        1-way<br />
+                        2-way
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+@code {
+    public override int SlideStopMax { get; set; } = 2;
+}

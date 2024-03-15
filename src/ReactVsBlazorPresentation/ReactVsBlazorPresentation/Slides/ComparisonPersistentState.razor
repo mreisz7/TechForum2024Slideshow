@@ -1,0 +1,38 @@
+﻿@inherits SlideBase
+
+<div class="full-screen">
+    <header class="slide-header">
+        <h1 class="slide-title">Comparison: Persistent State</h1>
+        <img class="logo" src="img/react-logo.png" />
+        <img class="logo" src="img/blazor-logo.png" />
+    </header>
+    <div class="slide-content split">
+        <div class="split-left">
+            <CodeBlock FileName="sharedStateContext.jsx" Class=@ShowSlideStopElement(1)>
+                @CodeStrings.sharedStateContextJsx
+            </CodeBlock>
+            <CodeBlock FileName="consumerComponent.jsx" Class=@ShowSlideStopElement(1)>
+                @CodeStrings.comsumerComponentJsx
+            </CodeBlock>
+            <CodeBlock FileName="app.jsx" Class=@ShowSlideStopElement(1)>
+                @CodeStrings.persistentStateAppJsx
+            </CodeBlock>
+        </div>
+        <div class="split-right">
+            <CodeBlock FileName="SharedStateProvider.razor" Class=@ShowSlideStopElement(2)>
+                @CodeStrings.sharedStateContextRazor
+            </CodeBlock>
+            <CodeBlock FileName="ConsumerComponent.razor" Class=@ShowSlideStopElement(2)>
+                @CodeStrings.comsumerComponentRazor
+            </CodeBlock>
+            <CodeBlock FileName="App.razor" Class=@ShowSlideStopElement(2)>
+                @CodeStrings.persistentStateAppRazor
+            </CodeBlock>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    public override int SlideStopMax { get; set; } = 2;
+}

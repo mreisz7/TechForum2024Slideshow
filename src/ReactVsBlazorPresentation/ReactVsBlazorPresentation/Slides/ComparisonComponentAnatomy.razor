@@ -1,0 +1,26 @@
+﻿@inherits SlideBase
+
+<div class="full-screen">
+    <header class="slide-header">
+        <h1 class="slide-title">Comparison: Components</h1>
+        <img class="logo" src="img/react-logo.png" />
+        <img class="logo" src="img/blazor-logo.png" />
+    </header>
+    <div class="slide-content split">
+        <div class="split-left">
+            <CodeBlock FileName="button.jsx" Class=@ShowSlideStopElement(1)>
+                @CodeStrings.buttonJsx
+            </CodeBlock>
+        </div>
+        <div class="split-right">
+            <CodeBlock FileName="Button.razor" Class=@ShowSlideStopElement(2)>
+                @CodeStrings.buttonRazor
+            </CodeBlock>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    public override int SlideStopMax { get; set; } = 2;
+}

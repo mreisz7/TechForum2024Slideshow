@@ -1,0 +1,11 @@
+﻿@inherits SlideBase
+
+<div style="text-align: center">
+  <h1>Are you capable of writing this code yourself?</h1>
+  <h1 class=@($"{@ShowSlideStopElement(1)} red")>Should you have to?</h1>
+</div>
+
+
+@code {
+    public override int SlideStopMax { get; set; } = 1;
+}
