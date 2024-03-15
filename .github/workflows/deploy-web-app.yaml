@@ -28,7 +28,7 @@ jobs:
       run: cp -r out/wwwroot docs
     
     - name: Set BasePath
-      run: sed -i 's/base href="\/"/base href="\/ReactVsBlazorPresentation\/"/g' docs/index.html
+      run: sed -i 's/base href="\/"/base href="\/TechForum2024Slideshow\/"/g' docs/index.html
     
     - name: Remove the out folder
       run: rm -rf out
