@@ -238,6 +238,12 @@ th, td {
         overflow-y: auto;
     }
 
+@media only screen and (max-width : 667px) {
+    .code-block code {
+        font-size: .8rem;
+    }
+}
+
 /**********************/
 /***   Title Page   ***/
 /**********************/
