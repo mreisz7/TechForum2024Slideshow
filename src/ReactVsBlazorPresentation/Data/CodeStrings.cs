@@ -51,7 +51,8 @@
 
         internal static string appRoutingJsx = """
             import React from 'react';
-            import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+            import { BrowserRouter as Router, 
+                     Route, Link } from 'react-router-dom';
             import ExamplePage from './ExamplePage';
 
             function App() {
@@ -75,7 +76,9 @@
         internal static string appRoutingRazor = """
             <Router AppAssembly="@typeof(Program).Assembly">
                 <Found Context="routeData">
-                    <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
+                    <RouteView RouteData="@routeData" 
+                               DefaultLayout="@typeof(MainLayout)" 
+                    />
                 </Found>
                 <NotFound>
                     <LayoutView Layout="@typeof(MainLayout)">
@@ -88,7 +91,8 @@
         // Comparison: Persistent State
 
         internal static string sharedStateContextJsx = """
-            import React, { createContext, useState, useContext } from 'react';
+            import React, { createContext, 
+                            useState, useContext } from 'react';
 
             const SharedStateContext = createContext();
 
@@ -100,14 +104,16 @@
                 };
 
                 return (
-                    <SharedStateContext.Provider value={{ message, updateMessage }}>
+                    <SharedStateContext.Provider 
+                        value={{ message, updateMessage }}>
                         {children}
                     </SharedStateContext.Provider>
                 );
             };
 
             // Custom hook to use the shared state
-            export const useSharedState = () => useContext(SharedStateContext);
+            export const useSharedState = 
+                () => useContext(SharedStateContext);
             """;
 
         internal static string comsumerComponentJsx = """
@@ -153,7 +159,9 @@
             </CascadingValue>
 
             @code {
-                [Parameter] public RenderFragment ChildContent { get; set; }
+                [Parameter] 
+                public RenderFragment ChildContent { get; set; }
+                
                 public SharedState SharedState { get; set; } = new SharedState();
 
                 public class SharedState
