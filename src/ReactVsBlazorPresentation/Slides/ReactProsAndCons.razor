@@ -5,4 +5,27 @@
         <h1 class="slide-title">React: Pros & Cons</h1>
         <img class="logo" src="img/react-logo.png" />
     </header>
+    <div class="slide-content split">
+        <div class="split-left">
+            <h2 class=@ShowSlideStopElement(1)>Pros:</h2>
+            <ul class=@ShowSlideStopElement(1)>
+                <li>Mature ecosystem</li>
+                <li>Flexibility</li>
+                <li>Wide adoption</li>
+                <li>3rd party package availability</li>
+            </ul>
+        </div>
+        <div class="split-right">
+            <h2 class=@ShowSlideStopElement(2)>Cons:</h2>
+            <ul class=@ShowSlideStopElement(2)>
+                <li>Most functionality requires additional packages</li>
+                <li>Complicated build pipelines</li>
+                <li>Adding Typescript requires additional tooling</li>
+            </ul>
+        </div>
+    </div>
 </div>
+
+@code {
+    public override int SlideStopMax { get; set; } = 2;
+}
