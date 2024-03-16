@@ -62,7 +62,8 @@ section.slide-frame.next {
 }
 
 h1 {
-    font-size: 50px;
+    font-size: clamp(2rem, 5vw, 3rem);
+    text-align: left;
     margin: 0.5rem;
 }
 
@@ -126,21 +127,20 @@ h1 {
 
 .slide-header .logo {
     flex: 0 1 auto;
-    height: 50px;
-    margin-left: 1.5rem;
+    height: clamp(2rem, 5vw, 3rem);
+    margin-left: 1.5em;
 }
 
 .slide-content {
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
-    padding: 2rem;
+    padding: 1rem;
     overflow-y: auto;
 }
 
 .slide-content ul {
-    margin-left: 3rem;
-    font-size: 3rem;
+    font-size: clamp(1rem, 3rem, 2rem);
 }
 
 .slide-content ul li {
@@ -172,18 +172,23 @@ h1 {
 
 table {
     border-collapse: collapse;
+    font-size: clamp(.7rem, 2vw, 1.25rem);
 }
 
 th {
-    font-size: 1.5rem;
+    font-size: 1.5em;
     font-weight: bold;
-    min-width: 10rem;
+    min-width: 7.5em;
+}
+
+td {
+    font-size: 1em;
 }
 
 th, td {
     border: 2px solid #fff;
     border-spacing: 0;
-    padding: 1.5rem;
+    padding: .5em;
 }
 
 .table-header {
@@ -191,11 +196,11 @@ th, td {
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
-    min-width: 10rem;
+    min-width: 7.5em;
 }
 
 .table-header-logo {
-    height: 1.5rem;
+    height: 1.5em;
 }
 
 /**********************/
@@ -218,8 +223,9 @@ th, td {
     white-space: pre;
     background-color: #eee;
     color: #000;
-    padding: 1rem 2rem;
-    font-size: 1.5rem;
+    padding: .5em;
+    font-size: 1.25rem;
+    overflow-y: auto;
 }
 
 /**********************/
