@@ -145,7 +145,7 @@
               return (
                 <SharedStateProvider>
                   <ConsumerComponent />
-                  {/* Any other components that should share the state */}
+                  {/* Other components that share the state */}
                 </SharedStateProvider>
               );
             }
@@ -162,7 +162,7 @@
                 [Parameter] 
                 public RenderFragment ChildContent { get; set; }
                 
-                public SharedState SharedState { get; set; } = new SharedState();
+                public SharedState SharedState { get; set; } = new();
 
                 public class SharedState
                 {
@@ -176,7 +176,8 @@
             <button @onclick="UpdateMessage">Change Message</button>
 
             @code {
-                [CascadingParameter] protected SharedStateProvider.SharedState State { get; set; }
+                [CascadingParameter] 
+                protected SharedStateProvider.SharedState State { get; set; }
 
                 void UpdateMessage()
                 {
@@ -188,7 +189,7 @@
         internal static string persistentStateAppRazor = """
             <SharedStateProvider>
                 <ConsumerComponent />
-                <!-- Any other components that should share the state -->
+                <!-- Other components that share the state -->
             </SharedStateProvider>
             """;
     }
