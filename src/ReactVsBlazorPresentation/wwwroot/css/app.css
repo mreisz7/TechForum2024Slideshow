@@ -171,15 +171,6 @@ h1 {
     }
 }
 
-
-.slide-content.split .split-left iframe,
-.slide-content.split .split-right iframe {
-    width: 100%;
-    min-height: calc(100vh - 7rem);
-    overflow: hidden;
-}
-
-
 table {
     border-collapse: collapse;
     font-size: clamp(.7rem, 2vw, 1.25rem);
