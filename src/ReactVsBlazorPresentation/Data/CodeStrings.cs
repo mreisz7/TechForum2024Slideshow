@@ -59,6 +59,9 @@
               return (
                 <Router>
                    <Route path="/example" component={ExamplePage} />
+                   <Route path="/*">
+                     <p>Sorry, there's nothing at this address.</p>
+                   </Route>
                 </Router>
               );
             }
