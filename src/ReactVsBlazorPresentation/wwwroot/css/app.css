@@ -141,6 +141,11 @@ h1 {
     overflow-y: auto;
 }
 
+    .slide-content.column {
+        flex-flow: column nowrap;
+        align-items: center;
+    }
+
     .slide-content ul {
         font-size: clamp(1rem, 3rem, 2rem);
     }
@@ -202,6 +207,14 @@ th, td {
 
 .table-header-logo {
     height: 1.5em;
+}
+
+.dev-survey-image {
+    display: block;
+    width: 63rem;
+    height: auto;
+    max-width: 90vw;
+    margin-top: 2rem;
 }
 
 /**********************/
