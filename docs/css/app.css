@@ -141,6 +141,11 @@ h1 {
     overflow-y: auto;
 }
 
+    .slide-content.column {
+        flex-flow: column nowrap;
+        align-items: center;
+    }
+
     .slide-content ul {
         font-size: clamp(1rem, 3rem, 2rem);
     }
@@ -170,15 +175,6 @@ h1 {
         max-width: 100%;
     }
 }
-
-
-.slide-content.split .split-left iframe,
-.slide-content.split .split-right iframe {
-    width: 100%;
-    min-height: calc(100vh - 7rem);
-    overflow: hidden;
-}
-
 
 table {
     border-collapse: collapse;
@@ -211,6 +207,14 @@ th, td {
 
 .table-header-logo {
     height: 1.5em;
+}
+
+.dev-survey-image {
+    display: block;
+    width: 63rem;
+    height: auto;
+    max-width: 90vw;
+    margin-top: 2rem;
 }
 
 /**********************/
